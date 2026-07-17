@@ -11,7 +11,7 @@ license = "MIT OR Apache-2.0"
 description = "A minimal NES audio output library written in Rust, targeting everything from microcontrollers to modern desktops."
 readme = "README.md"
 keywords = ["nes", "emulator", "audio", "embedded", "cpal"]
-categories = ["emulators", "embedded", "game-development", "multimedia", "audio"]
+categories = ["emulators", "embedded", "game-development", "multimedia::audio"]
 
 exclude = [
     ".cargo/",
