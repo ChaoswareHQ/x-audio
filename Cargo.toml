@@ -8,10 +8,10 @@ repository = "https://github.com/ChaoswareHQ/x-audio"
 homepage = "https://github.com/ChaoswareHQ/x-audio"
 documentation = "https://chaoswarehq.github.io/x-audio/"
 license = "MIT OR Apache-2.0"
-description = "A minimal NES audio output library written in Rust, targeting everything from microcontrollers to modern desktops."
+description = "A minimal audio output library written in Rust, targeting everything from microcontrollers to modern desktops."
 readme = "README.md"
-keywords = ["nes", "emulator", "audio", "embedded", "cpal"]
-categories = ["emulators", "embedded", "game-development", "multimedia::audio"]
+keywords = ["audio", "embedded", "cpal", "ringbuf", "no-std"]
+categories = ["embedded", "game-development", "multimedia", "multimedia::audio"]
 
 exclude = [
     ".cargo/",
