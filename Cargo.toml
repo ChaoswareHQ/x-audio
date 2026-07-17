@@ -5,15 +5,58 @@ version = "0.1.0"
 edition = "2024"
 rust-version = "1.97.0"
 repository = "https://github.com/ChaoswareHQ/x-audio"
+homepage = "https://github.com/ChaoswareHQ/x-audio"
+documentation = "https://chaoswarehq.github.io/x-audio/"
 license = "MIT OR Apache-2.0"
+description = "A minimal NES audio output library written in Rust, targeting everything from microcontrollers to modern desktops."
+readme = "README.md"
+keywords = ["nes", "emulator", "audio", "embedded", "cpal"]
+categories = ["emulators", "embedded", "game-development", "multimedia", "audio"]
+
+exclude = [
+    ".cargo/",
+    ".github/",
+    "clippy.toml",
+    "docs/",
+    "rust-toolchain.toml",
+]
+
+[features]
+default = ["std"]
+std = ["dep:cpal", "dep:ringbuf"]
+mcu = []
+
+[lib]
+name = "audio"
+crate-type = ["lib", "cdylib", "staticlib"]
+
+[[example]]
+name = "main"
+path = "examples/main.rs"
+
+[[example]]
+name = "mcu"
+path = "examples/mcu.rs"
+required-features = ["mcu"]
 
 [dependencies]
-cpal = "0.18.1"
-ringbuf = "0.5.0"
+cpal = { version = "0.18.1", optional = true }
+ringbuf = { version = "0.5.0", optional = true }
+
+[dev-dependencies]
+x-nes = "0.1.1"
+
+[profile.dev]
+panic = "abort"
 
 [profile.release]
 opt-level      = 3
 lto            = true
 codegen-units  = 1
-strip          = "symbols"
+strip          = true
 panic          = "abort"
+
+[lints.clippy]
+all = "warn"
+pedantic = "warn"
+nursery = "warn"
